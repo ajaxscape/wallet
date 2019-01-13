@@ -1,15 +1,20 @@
-const { Wallet } = require('./index')
+const { Player } = require('./index')
 
-console.log(Wallet)
+console.log(Player)
 
-const myWallet = new Wallet({ coins: 100 })
-const yourWallet = new Wallet()
+const myPlayer = new Player()
+const yourPlayer = new Player()
+
+myPlayer.receive({ coins: 100, goats: 50, sheep: 120, cows: 300, 'cases of maleria': 20 })
+yourPlayer.receive({ coins: 100 })
 
 try {
-  myWallet.pay(yourWallet, 99)
+  myPlayer.trade(yourPlayer, { coins: 22, goats: 5, 'cases of maleria': 19 })
 } catch (error) {
   console.log(error.message)
 }
 
-console.log(`My Coins: ${myWallet.coins}`)
-console.log(`Your Coins: ${yourWallet.coins}`)
+console.log(`My Coins: ${myPlayer.coins}`)
+console.log(`My Stock: `, myPlayer.stock)
+console.log(`Your Coins: ${yourPlayer.coins}`)
+console.log(`Your Stock:`, yourPlayer.stock)
