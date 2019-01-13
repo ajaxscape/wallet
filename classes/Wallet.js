@@ -1,35 +1,43 @@
 const WalletError = require('../errors/WalletError')
 
-module.exports = class Wallet {
-  constructor ({ owner, coins = 0 } = {}) {
-    this._owner = owner
-    this._coins = 0
-    this.receive(coins)
-  }
+module.exports = (function () {
+  // Use a weak map to provide true private variables
 
-  get owner () {
-    return this._owner
-  }
+  let privateProps = new WeakMap()
 
-  get coins () {
-    return this._coins
-  }
-
-  pay (wallet, value) {
-    if (value <= 0) {
-      throw new WalletError('Cannot pay negative coins')
+  class Wallet {
+    constructor ({ owner, coins = 0 } = {}) {
+      privateProps.set(this, { owner })
+      privateProps.set(this, { coins: 0 })
+      this.receive(coins)
     }
-    if (value > this._coins) {
-      throw new WalletError('Not enough coins')
+
+    get owner () {
+      return privateProps.get(this).owner
     }
-    wallet.receive(value)
-    this._coins -= value
+
+    get coins () {
+      return privateProps.get(this).coins
+    }
+
+    pay (wallet, value) {
+      if (value <= 0) {
+        throw new WalletError('Cannot pay negative coins')
+      }
+      if (value > this.coins) {
+        throw new WalletError('Not enough coins')
+      }
+      wallet.receive(value)
+      privateProps.set(this, { coins: this.coins - value })
+    }
+
+    receive (value) {
+      if (value < 0) {
+        throw new WalletError('Cannot receive negative coins')
+      }
+      privateProps.set(this, { coins: this.coins + value })
+    }
   }
 
-  receive (value) {
-    if (value < 0) {
-      throw new WalletError('Cannot receive negative coins')
-    }
-    this._coins += value
-  }
-}
+  return Wallet
+})()
