@@ -1,3 +1,5 @@
+import WalletError from '../errors/WalletError'
+
 export default class Wallet {
   constructor ({ owner, coins }) {
     this._owner = owner
@@ -15,10 +17,10 @@ export default class Wallet {
 
   pay ({ wallet }, value) {
     if (value <= 0) {
-      throw new Error('Cannot pay negative coins')
+      throw new WalletError('Cannot pay negative coins')
     }
     if (value > this._coins) {
-      throw new Error('Not enough coins')
+      throw new WalletError('Not enough coins')
     }
     wallet.receive(value)
     this._coins += value
@@ -26,7 +28,7 @@ export default class Wallet {
 
   receive (value) {
     if (value <= 0) {
-      throw new Error('Cannot receive negative coins')
+      throw new WalletError('Cannot receive negative coins')
     }
     this._coins += value
   }

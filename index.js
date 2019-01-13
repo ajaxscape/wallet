@@ -1,3 +1,7 @@
-import Wallet from './classes/wallet'
+import Wallet from './classes/Wallet'
+import WalletError from './errors/WalletError'
 
-export default Wallet
+export default {
+  Wallet,
+  WalletError
+}
