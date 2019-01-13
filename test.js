@@ -5,11 +5,11 @@ console.log(Player)
 const myPlayer = new Player()
 const yourPlayer = new Player()
 
-myPlayer.receive({ coins: 100, goats: 50, sheep: 120, cows: 300, 'cases of maleria': 20 })
+myPlayer.receive({ coins: 100, goats: 50, sheep: 120, cows: 300, cheese: 20 })
 yourPlayer.receive({ coins: 100 })
 
 try {
-  myPlayer.trade(yourPlayer, { coins: 22, goats: 5, 'cases of maleria': 19 })
+  myPlayer.trade(yourPlayer, { coins: 22, goats: 5, cheese: 19 })
 } catch (error) {
   console.log(error.message)
 }

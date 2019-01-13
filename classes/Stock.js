@@ -1,5 +1,5 @@
 const StockError = require('../errors/StockError')
-const validStock = ['goats', 'sheep', 'cows', 'cases of maleria']
+const validStock = ['goats', 'sheep', 'cows', 'cheese']
 
 module.exports = (function () {
   // Use a weak map to provide true private variables
