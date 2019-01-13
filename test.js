@@ -5,14 +5,10 @@ console.log(Player)
 const myPlayer = new Player()
 const yourPlayer = new Player()
 
-myPlayer.receive({ coins: 100, goats: 50, sheep: 120, cows: 300, cheese: 20 })
+myPlayer.receive({ coins: 100, goats: 1, sheep: 120, cows: 300, cheese: 20 })
 yourPlayer.receive({ coins: 100 })
 
-try {
-  myPlayer.trade(yourPlayer, { coins: 22, goats: 5, cheese: 19 })
-} catch (error) {
-  console.log(error.message)
-}
+myPlayer.trade(yourPlayer, { coins: 22, goats: 5, cheese: 19 })
 
 console.log(`My Coins: ${myPlayer.coins}`)
 console.log(`My Stock: `, myPlayer.stock)
