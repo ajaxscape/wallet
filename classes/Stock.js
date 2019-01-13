@@ -1,3 +1,4 @@
+const StockError = require('../errors/StockError')
 const validStock = ['goats', 'sheep', 'cows', 'cases of maleria']
 
 module.exports = (function () {
@@ -12,7 +13,7 @@ module.exports = (function () {
           if (validStock.includes(stockName)) {
             return true
           } else {
-            throw new Error(`Invalid stock item: ${stockName}`)
+            throw new StockError(`Invalid stock item: ${stockName}`)
           }
         }
       })
@@ -38,7 +39,7 @@ module.exports = (function () {
           if (stock[stockName] && count < stock[stockName]) {
             stock[stockName] -= count
           } else {
-            throw new Error(`Not enough ${stockName} to remove ${count}`)
+            throw new StockError(`With only ${stock[stockName]} ${stockName} there are not enough to remove ${count}`)
           }
         }
       })
