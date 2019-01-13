@@ -15,7 +15,7 @@ module.exports = class Wallet {
     return this._coins
   }
 
-  pay ({ wallet }, value) {
+  pay (wallet, value) {
     if (value <= 0) {
       throw new WalletError('Cannot pay negative coins')
     }
