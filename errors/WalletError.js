@@ -1,3 +1,1 @@
-const { Error } = require('util')
-
-exports.module = class CustomError extends Error {}
+exports.module = class WalletError extends Error {}
