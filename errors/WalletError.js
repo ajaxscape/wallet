@@ -1,1 +1,1 @@
-exports.module = class WalletError extends Error {}
+module.exports = class WalletError extends Error {}

@@ -1,7 +1,7 @@
 const Wallet = require('./classes/Wallet')
 const WalletError = require('./errors/WalletError')
 
-exports.module = {
+module.exports = {
   Wallet,
   WalletError
 }

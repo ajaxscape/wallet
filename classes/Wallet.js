@@ -1,7 +1,7 @@
 const WalletError = require('../errors/WalletError')
 
-exports.module = class Wallet {
-  constructor ({ owner, coins }) {
+module.exports = class Wallet {
+  constructor ({ owner, coins = 0 } = {}) {
     this._owner = owner
     this._coins = 0
     this.receive(coins)
@@ -27,7 +27,7 @@ exports.module = class Wallet {
   }
 
   receive (value) {
-    if (value <= 0) {
+    if (value < 0) {
       throw new WalletError('Cannot receive negative coins')
     }
     this._coins += value
