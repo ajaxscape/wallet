@@ -1,7 +1,7 @@
-import Wallet from './classes/Wallet'
-import WalletError from './errors/WalletError'
+const Wallet = require('./classes/Wallet')
+const WalletError = require('./errors/WalletError')
 
-export default {
+exports.module = {
   Wallet,
   WalletError
 }

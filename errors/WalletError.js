@@ -1,3 +1,3 @@
-import { Error } from 'util'
+const { Error } = require('util')
 
-export default class CustomError extends Error {}
+exports.module = class CustomError extends Error {}

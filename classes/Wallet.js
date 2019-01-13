@@ -1,6 +1,6 @@
-import WalletError from '../errors/WalletError'
+const WalletError = require('../errors/WalletError')
 
-export default class Wallet {
+exports.module = class Wallet {
   constructor ({ owner, coins }) {
     this._owner = owner
     this._coins = 0
