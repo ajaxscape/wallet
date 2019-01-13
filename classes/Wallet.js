@@ -23,7 +23,7 @@ module.exports = class Wallet {
       throw new WalletError('Not enough coins')
     }
     wallet.receive(value)
-    this._coins += value
+    this._coins -= value
   }
 
   receive (value) {
