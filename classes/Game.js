@@ -31,6 +31,10 @@ module.exports = (function () {
       const { players } = game
       players.forEach((player) => fn(player))
     }
+
+    requestTrade (player) {
+      console.log('Requesting trade with: ', player)
+    }
   }
 
   return Game
