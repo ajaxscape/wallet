@@ -1,11 +1,9 @@
 const { Player } = require('./index')
 
-console.log(Player)
-
 const myPlayer = new Player()
 const yourPlayer = new Player()
 
-myPlayer.receive({ coins: 100, goats: 1, sheep: 120, cows: 300, cheese: 20 })
+myPlayer.receive({ coins: 100, goats: 11, sheep: 120, cows: 300, cheese: 20 })
 yourPlayer.receive({ coins: 100 })
 
 myPlayer.trade(yourPlayer, { coins: 22, goats: 5, cheese: 19 })
