@@ -3,7 +3,6 @@ const validStock = ['goats', 'sheep', 'cows', 'cheese']
 
 module.exports = (function () {
   // Use a weak map to provide true private variables
-
   let privateProps = new WeakMap()
 
   class Stock {

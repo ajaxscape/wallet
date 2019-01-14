@@ -2,7 +2,6 @@ const WalletError = require('../errors/WalletError')
 
 module.exports = (function () {
   // Use a weak map to provide true private variables
-
   let privateProps = new WeakMap()
 
   class Wallet {
