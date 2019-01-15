@@ -29,7 +29,7 @@ module.exports = (function () {
     withPlayers (fn) {
       const game = privateProps.get(this)
       const { players } = game
-      players.forEach((player) => fn(player))
+      players.forEach((player, index) => fn(player, index))
     }
 
     requestTrade (player) {

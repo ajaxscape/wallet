@@ -41,13 +41,21 @@ module.exports = (function () {
     }
 
     get coins () {
-      const wallet = privateProps.get(this).wallet
-      return wallet.coins
+      return privateProps.get(this).wallet.coins
     }
 
     get stock () {
       const stock = (privateProps.get(this).stock).items
       return { ...stock }
+    }
+
+    set name (name) {
+      const data = privateProps.get(this)
+      data.name = name
+    }
+
+    get name () {
+      return privateProps.get(this).name
     }
   }
 
