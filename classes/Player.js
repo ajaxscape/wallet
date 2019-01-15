@@ -61,6 +61,22 @@ module.exports = (function () {
     get name () {
       return privateProps.get(this).name
     }
+
+    get game () {
+      return privateProps.get(this).game
+    }
+
+    join (game) {
+      const data = privateProps.get(this)
+      data.game = game
+    }
+
+    leave () {
+      const data = privateProps.get(this)
+      if (data.game) {
+        delete data.game
+      }
+    }
   }
 
   return Player

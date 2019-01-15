@@ -32,8 +32,9 @@ module.exports = (function () {
       players.forEach((player, index) => fn(player, index))
     }
 
-    requestTrade (player) {
-      console.log('Requesting trade with: ', player)
+    trade (playerA, itemsA, playerB, itemsB) {
+      playerA.trade(playerB, itemsA)
+      playerB.trade(playerA, itemsB)
     }
   }
 
