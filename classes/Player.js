@@ -13,7 +13,7 @@ module.exports = (function () {
       })
     }
 
-    trade (trader, items) {
+    give (items) {
       const data = privateProps.get(this)
       const { coins, ...trade } = items
       if (coins) {
@@ -24,7 +24,6 @@ module.exports = (function () {
         const stock = data.stock
         stock.remove(trade)
       }
-      return trader.receive(items)
     }
 
     receive (items) {
@@ -38,6 +37,11 @@ module.exports = (function () {
         const stock = data.stock
         stock.add(trade)
       }
+    }
+
+    trade (trader, items) {
+      this.give(items)
+      trader.receive(items)
     }
 
     get coins () {
